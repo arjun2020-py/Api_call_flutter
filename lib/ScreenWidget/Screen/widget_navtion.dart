@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../homeScreen/widget/home_widget.dart';
 import 'screen_bootom_navigation.dart';
 import 'screen_dropdwon.dart';
+import 'screen_siginup.dart';
 
 class WidgetNavigation extends StatelessWidget {
   const WidgetNavigation({super.key});
@@ -21,16 +22,26 @@ class WidgetNavigation extends StatelessWidget {
               onTap: () {
                 Get.to(ScreenBottomNavigation());
               },
-              color: Color(0xffB5F1CC),
+              color: const Color(0xffB5F1CC),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ButtonWidget(
               text: 'DropDown',
-              color: Color(0xff205E61),
+              color: const Color(0xff205E61),
               onTap: () {
                 Get.to(DropdownScreen());
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ButtonWidget(
+              text: 'Register',
+              color: Colors.blueGrey,
+              onTap: () {
+                Get.to( ScreenSiginup());
               },
             )
           ],

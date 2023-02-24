@@ -17,7 +17,6 @@ class _DropdownScreenState extends State<DropdownScreen> {
     return Scaffold(
       body: Center(
         child: DropdownButton<String>(
-          hint: Text('Cricket players'),
           value: dropdownValue,
           isExpanded: true,
           icon: const Icon(

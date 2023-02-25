@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../homeScreen/widget/home_widget.dart';
-import 'screen_bootom_navigation.dart';
-import 'screen_dropdwon.dart';
-import 'screen_siginup.dart';
+import 'bottom_navigation_demo.dart';
+import 'screen_dumy.dart';
+import 'screen_gender.dart';
 
 class WidgetNavigation extends StatelessWidget {
   const WidgetNavigation({super.key});
@@ -20,7 +20,7 @@ class WidgetNavigation extends StatelessWidget {
             ButtonWidget(
               text: 'BottomNavgation',
               onTap: () {
-                Get.to(ScreenBottomNavigation());
+                Get.to(BottomNavigation());
               },
               color: const Color(0xffB5F1CC),
             ),
@@ -28,20 +28,28 @@ class WidgetNavigation extends StatelessWidget {
               height: 10,
             ),
             ButtonWidget(
-              text: 'DropDown',
+              text: 'Radio Button',
               color: const Color(0xff205E61),
               onTap: () {
-                Get.to(DropdownScreen());
+                Get.to(ScreenGender());
               },
             ),
+
             const SizedBox(
               height: 10,
             ),
+            // ButtonWidget(
+            //   text: 'Register',
+            //   color: Colors.blueGrey,
+            //   onTap: () {
+            //     Get.to(ScreenSiginup());
+            //   },
+            // ),
             ButtonWidget(
-              text: 'Register',
-              color: Colors.blueGrey,
+              text: 'TestCase',
+              color: Colors.cyanAccent,
               onTap: () {
-                Get.to( ScreenSiginup());
+                Get.to(ScreenDummy());
               },
             )
           ],

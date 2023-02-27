@@ -98,6 +98,11 @@ class HomeScreen extends StatelessWidget {
                   Get.to(HiveScreen());
                 },
               ),
+              // ButtonWidget(
+              //   text: 'Get Method',
+              //   color: Color.fromARGB(0, 135, 108, 34),
+              //   onTap: () => Get.to(),
+              // )
             ],
           ),
         ),

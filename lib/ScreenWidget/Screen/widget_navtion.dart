@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task/ScreenWidget/Screen/hero_screen.dart';
 
 import '../../CarouselSlider/View/crousel_screen.dart';
 import '../../homeScreen/widget/home_widget.dart';
@@ -65,6 +66,16 @@ class WidgetNavigation extends StatelessWidget {
               onTap: () {
                 Get.to(SearchbarScreen());
               },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ButtonWidget(
+              text: 'Hero',
+              color: Colors.brown,
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HeroScreen(),
+              )),
             )
           ],
         ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../CarouselSlider/View/crousel_screen.dart';
 import '../../homeScreen/widget/home_widget.dart';
+import '../../searchBar/view/search_bar.dart';
 import 'bottom_navigation_demo.dart';
 import 'screen_dumy.dart';
 import 'screen_gender.dart';
@@ -34,22 +36,34 @@ class WidgetNavigation extends StatelessWidget {
                 Get.to(ScreenGender());
               },
             ),
-
             const SizedBox(
               height: 10,
             ),
-            // ButtonWidget(
-            //   text: 'Register',
-            //   color: Colors.blueGrey,
-            //   onTap: () {
-            //     Get.to(ScreenSiginup());
-            //   },
-            // ),
             ButtonWidget(
-              text: 'TestCase',
+              text: 'Slider',
+              color: Colors.blueGrey,
+              onTap: () {
+                Get.to(CarouselScreen());
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ButtonWidget(
+              text: 'DropDown',
               color: Colors.cyanAccent,
               onTap: () {
                 Get.to(ScreenDummy());
+              },
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ButtonWidget(
+              text: 'SearchBar',
+              color: const Color(0xffBE6DB7),
+              onTap: () {
+                Get.to(SearchbarScreen());
               },
             )
           ],

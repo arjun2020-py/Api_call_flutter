@@ -15,14 +15,13 @@ class DetailedProductScreen extends StatelessWidget {
         padding: EdgeInsets.all(10.0.r),
         child: Card(
           child: ListTile(
-            title: Hero(
-              transitionOnUserGestures: true,
-              tag: 'img1',
-              child: Image.network(
+            title:
+             
+            Image.network(
                 detiedPro.image.toString(),
                 height: 350.h,
               ),
-            ),
+          
             subtitle: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -26,8 +26,8 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: ProductDrwaerScreen(),
-      backgroundColor: Color(0xffe6e9e6),
+      drawer: const ProductDrwaerScreen(),
+      backgroundColor: const Color(0xffe6e9e6),
       appBar: AppBar(
         backgroundColor: const Color(0xffec4497),
         title: const Text('meesho'),
@@ -39,7 +39,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 );
                 showSearch(context: context, delegate: mySearchDelegate());
               },
-              icon: Icon(Icons.search))
+              icon: const Icon(Icons.search))
         ],
       ),
       body: Obx(() {
@@ -65,13 +65,9 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Hero(
-                                transitionOnUserGestures: true,
-                                tag: 'img1',
-                                child: Image.network(
-                                  data.image.toString(),
-                                  height: 100,
-                                ),
+                              title: Image.network(
+                                data.image.toString(),
+                                height: 100,
                               ),
                               subtitle: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -97,12 +93,12 @@ class _ProductScreenState extends State<ProductScreen> {
                                       const Text('onwards')
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(right: 200.r),
-                                    child: Text('Free Devlivery'),
+                                    child: const Text('Free Devlivery'),
                                   ),
                                   SizedBox(
                                     height: 10.h,
@@ -160,22 +156,22 @@ class mySearchDelegate extends SearchDelegate {
   List<Widget>? buildActions(BuildContext context) {
     IconButton(
         onPressed: () {
-          close(context, null);
+          // close(context, null);
+          query = '';
         },
-        icon: Icon(Icons.close));
+        icon: const Icon(
+          Icons.close,
+          color: Colors.black,
+        ));
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
     IconButton(
         onPressed: () {
-          if (query.isEmpty) {
-            close(context, null);
-          } else {
-            query = '';
-          }
+          Get.back();
         },
-        icon: Icon(Icons.arrow_back));
+        icon: const Icon(Icons.arrow_back));
   }
 
   @override
@@ -188,100 +184,90 @@ class mySearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     return Obx(
-      () => GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 22,
-            mainAxisSpacing: 22,
-            childAspectRatio: 0.75,
-            mainAxisExtent: 350),
-        itemCount: controller.Serach_model.length,
+      () => ListView.builder(
+        itemCount: 1,
         itemBuilder: (BuildContext context, int index) {
           GetProductModel data = controller.Serach_model[index];
           return SingleChildScrollView(
-            child: InkWell(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => DetailedProductScreen(detiedPro: data),
-              )),
-              child: Card(
-                child: Column(
-                  children: [
-                    ListTile(
-                      title: Image.network(
-                        data.image.toString(),
-                        height: 150,
-                      ),
-                      subtitle: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(data.title.toString()),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.currency_rupee,
-                                color: Colors.black,
-                              ),
-                              Text(
-                                data.price.toString(),
-                                style: const TextStyle(color: Colors.black),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Text('onwards')
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 200.r),
-                            child: Text('Free Devlivery'),
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Row(
-                            children: [
-                              Card(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                color: const Color(0xff55bc76),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      data.rating!.rate.toString(),
-                                      style: const TextStyle(
-                                          fontSize: 15, color: Colors.white),
-                                    ),
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.white,
-                                      size: 15,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                children: const [
-                                  Text('count'),
-                                  Text('Reviwers')
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      onTap: () {
-                        query = data.toString();
-                        showResults(context);
-                      },
+            child: Card(
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Image.network(
+                      data.image.toString(),
+                      height: 150,
                     ),
-                  ],
-                ),
+                    subtitle: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(data.title.toString()),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.currency_rupee,
+                              color: Colors.black,
+                            ),
+                            Text(
+                              data.price.toString(),
+                              style: const TextStyle(color: Colors.black),
+                            ),
+                            Text(data.category.toString()),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Text('onwards')
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 200.r),
+                          child: const Text('Free Devlivery'),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          children: [
+                            Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              color: const Color(0xff55bc76),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    data.rating!.rate.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 15, color: Colors.white),
+                                  ),
+                                  const Icon(
+                                    Icons.star,
+                                    color: Colors.white,
+                                    size: 15,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Text('count'),
+                                Text('Reviwers'),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      query = data.toString();
+                      showResults(context);
+                    },
+                  ),
+                ],
               ),
             ),
           );

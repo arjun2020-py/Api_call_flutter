@@ -5,17 +5,9 @@ class ThridHeroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: Hero(
-          transitionOnUserGestures: true,
-          tag: 't2',
-          child: Container(
-            color: Colors.amber,
-            width: 100,
-            height: 100,
-          ),
-        ),
+      
       ),
     );
   }

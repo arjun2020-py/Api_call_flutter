@@ -113,9 +113,7 @@ class _FormValidationState extends State<FormValidation> {
 
   void fromValidation() {
     if (fromKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Login sucessfully')),
-      );
+  
       Navigator.push(
           context,
           MaterialPageRoute(

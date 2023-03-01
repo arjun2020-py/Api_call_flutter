@@ -7,6 +7,7 @@ class ProductController extends GetxController {
   var Serach_model = <GetProductModel>[].obs;
 
   var loading = true.obs;
+  var buttonPress = true.obs;
 
   getProduct() async {
     try {
